@@ -1,0 +1,16 @@
+#!/bin/sh
+
+usage()
+{
+	printf 'usage: %s <base-branch>\n'
+	exit 1
+}
+
+[ $# -eq 1 ] || usage
+
+branch=${1:?}
+
+git submodule deinit base
+rm -rf .git/modules/base
+git rm base
+git submodule add -b $branch git@github.com:mk-f/koreader-base.git base
