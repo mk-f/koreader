@@ -10,4 +10,4 @@
 [submodule "base"]
 	path = base
 	url = git@github.com:mk-f/koreader-base.git
-	branch = master
+	branch = Issue3419
