@@ -65,7 +65,16 @@ function PocketBook:init()
             [KEY_MENU] = "Menu",
             [KEY_PREV] = "LPgBack",
             [KEY_NEXT] = "LPgFwd",
-        },
+            [KEY_HOME] = "Home",                                                         
+        },                                                                               
+        event_map_adapter = {                                                            
+            Home = function(ev)                                                      
+                if self.input:isEvKeyPress(ev) then                              
+                    require("ui/uimanager"):broadcastEvent(                  
+                    require("ui/event"):new("Close"))                
+                end                                                              
+            end,                                                                     
+        },     
         handleMiscEv = function(this, ev)
             if ev.code == EVT_BACKGROUND then
                 self.isInBackGround = true
